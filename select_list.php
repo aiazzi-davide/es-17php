@@ -19,7 +19,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Start the form and the select element
-    echo '<form action="select_candidate.php" method="get">';
+    echo '<form action="select_candidate.php" method="post">';
     echo '<select name="list">';
 
     // Output each list as an option

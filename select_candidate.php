@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Get the selected list ID from the URL
-$list_id = $_GET['list'];
+$list_id = $_POST['list'];
 
 // SQL to get candidates for the selected list
 $sql = "SELECT id_candidato, cognome, nome FROM candidati WHERE id_lista = $list_id";
@@ -22,7 +22,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Start the form and the select element
-    echo '<form action="confirm_vote.php" method="get">';
+    echo '<form action="confirm_vote.php" method="post">';
     echo '<select name="candidate">';
 
     // Output each candidate as an option

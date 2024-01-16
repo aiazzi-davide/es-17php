@@ -1,5 +1,4 @@
 <?php
-
 // HTML per la pagina di benvenuto
 echo '<!DOCTYPE html>
 <html lang="it">
