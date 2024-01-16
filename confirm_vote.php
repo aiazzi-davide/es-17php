@@ -17,21 +17,18 @@ if ($conn->connect_error) {
 $candidate_id = $_GET['candidate'];
 
 // SQL to get the candidate details
-$sql = "SELECT cognome, nome, id_lista FROM candidati WHERE id_candidato = $candidate_id";
+$sql = "SELECT c.cognome, c.nome, l.nome_lista FROM candidati c join liste l on c.id_lista = l.id_lista WHERE id_candidato = $candidate_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Output the candidate details
     while($row = $result->fetch_assoc()) {
-        echo 'Selected List: '. $row['id_lista'] . '<br>';
+        echo 'Lista selezionata: '. $row['nome_lista'] . '<br>';
         echo 'Selected Candidate: '. $row['cognome'] . ' ' . $row['nome'] . '<br>';
     }
     // Add the confirm and cancel buttons
-    echo '<form action="confirm_vote_action.php" method="get">';
-    echo '<input type="hidden" name="candidate" value="'. $candidate_id .'">';
-    echo '<input type="submit" name="confirm" value="Confirm">';
-    echo '<input type="submit" name="cancel" value="Cancel">';
-    echo '</form>';
+    echo '<button type="button"><a href="vote_confirmed.php">Converma</a></button>';
+    echo '<button type="button"><a href="index.php">Annulla</a></button>';
 } else {
     echo "0 results";
 }
