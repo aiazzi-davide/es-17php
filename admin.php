@@ -28,17 +28,23 @@ echo "<h1>Riepilogo dei voti</h1>";
 
 // Visualizza il riepilogo dei voti
 if ($result->num_rows > 0) {
-    echo "<table>
+    echo " 
+           <table>
             <tr>
                 <th>Lista</th>
                 <th>Voti assoluti</th>
                 <th>Voti percentuali</th>
+
             </tr>";
 
     while ($row = $result->fetch_assoc()) {
         $nome_lista = $row["nome_lista"];
         $voti_lista = $row["voti_lista"];
-        $percentuale_voti = ($voti_lista / $totale_voti) * 100;
+        if ($totale_voti == 0) {
+            $percentuale_voti = 0;
+        } else {
+            $percentuale_voti = ($voti_lista / $totale_voti) * 100;
+        }
 
         echo "<tr>
                 <td>$nome_lista</td>

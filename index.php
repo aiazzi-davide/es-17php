@@ -11,6 +11,7 @@ echo '<!DOCTYPE html>
     <p>Per favore, premi il pulsante qui sotto per iniziare il processo di voto.</p>
     <form action="select_list.php" method="post">
         <input type="submit" value="Inizia a Votare">
+        <button><a href="admin_home.php">admin login</a></button>
     </form>
 </body>
 </html>';

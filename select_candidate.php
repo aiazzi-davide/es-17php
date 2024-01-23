@@ -1,12 +1,6 @@
 <?php
-// Connect to the database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "SistemaDiVoto1";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+global $conn;
+require("func.php");
 
 // Check connection
 if ($conn->connect_error) {
