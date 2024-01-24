@@ -44,6 +44,7 @@ if ($result->num_rows > 0) {
             $percentuale_voti = 0;
         } else {
             $percentuale_voti = ($voti_lista / $totale_voti) * 100;
+            $percentuale_voti = number_format($percentuale_voti, 2);
         }
 
         echo "<tr>
